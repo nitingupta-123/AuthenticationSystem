@@ -86,8 +86,6 @@ module.exports.sendMail=(email,subject,url,token,callback)=>{
             return callback(null,data);
         }
     });
-
-    
 }
 
 

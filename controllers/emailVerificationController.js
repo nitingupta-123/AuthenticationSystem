@@ -24,7 +24,7 @@ module.exports.verify_post = async (req, res) => {
     }
     const token = jwt.sign({ email }, process.env.JWT_ACC_ACTIVATE, { expiresIn: '20m' })
     const subject = 'Email Verification';
-    const url = process.env.CLIENT_URL +  '/verify-sucess';
+    const url = process.env.CLIENT_URL+':'+process.env.PORT +  '/verify-sucess';
 
     sendMail(email, subject, url, token, (err, data) => {
       if (err) {

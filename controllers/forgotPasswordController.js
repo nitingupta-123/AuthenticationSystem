@@ -21,7 +21,7 @@ module.exports.forgotPassword_put = (req, res) => {
         }
         const token = jwt.sign({ _id: user._id }, process.env.RESET_PASSWORD_KEY, { expiresIn: '20m' })
         const subject = 'Password Reset Link';
-        const url = process.env.CLIENT_URL + '/reset-password';
+        const url = process.env.CLIENT_URL+':'+process.env.PORT  + '/reset-password';
         //const data = emailMessageBuilder(email, subject, url, token);
 
         return user.updateOne({ resetLink: token }, (err, token_data) => {
